@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import ChameleonFramework
 
 class CategoryCollectionViewController: UICollectionViewController, NetworkManagerDelegate {
     
@@ -20,7 +19,7 @@ class CategoryCollectionViewController: UICollectionViewController, NetworkManag
     private var indicator : UIActivityIndicatorView?
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationController?.navigationBar.tintColor = .black
     }
     
     override func viewDidLoad() {
@@ -120,8 +119,8 @@ extension CategoryCollectionViewController : UICollectionViewDelegateFlowLayout 
         print("Error request NetworkManagerDelegate in CategoryCollectionViewController ---> \(errorMessage)")
     }
     
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 

@@ -10,36 +10,42 @@
     </dependencies>
     <scenes>
         <!--Category-->
-        <scene sceneID="fhC-gN-fkn">
+        <scene sceneID="fEr-p5-EET">
             <objects>
-                <tableViewController id="BH4-EY-2Kw" customClass="CategoryTableViewController" customModule="MyWallpapers_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b4H-ed-aws">
+                <collectionViewController id="Gmd-JR-209" customClass="CategoriesCollectionViewController" customModule="MyWallpapers_" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hLo-pN-BDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="wIh-80-ulF" customClass="CustomTableViewCell" customModule="MyWallpapers_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="130"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xCX-fR-v5c">
+                            <size key="itemSize" width="320" height="130"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CollectionCustomCell" id="eTa-NP-9iF" customClass="CategoryCollectionViewCell" customModule="MyWallpapers_" customModuleProvider="target">
+                                <rect key="frame" x="27.5" y="0.0" width="320" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wIh-80-ulF" id="Y8s-Ff-vVA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                </view>
+                                <connections>
+                                    <segue destination="xfL-9r-YXq" kind="show" identifier="goToSelectCategory" id="2UJ-CV-2yd"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="BH4-EY-2Kw" id="kVa-dC-nLU"/>
-                            <outlet property="delegate" destination="BH4-EY-2Kw" id="cev-fQ-5ol"/>
+                            <outlet property="dataSource" destination="Gmd-JR-209" id="2Sx-qY-ybF"/>
+                            <outlet property="delegate" destination="Gmd-JR-209" id="H4I-af-TIY"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Category" id="Hb3-hm-Ev5"/>
-                    <connections>
-                        <segue destination="xfL-9r-YXq" kind="show" identifier="goToSelectCategory" id="aAH-8S-te6"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LQS-wc-ksc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Category" id="IoO-b5-t6Z"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNO-PJ-NbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823.20000000000005" y="161.46926536731635"/>
+            <point key="canvasLocation" x="790" y="161"/>
         </scene>
         <!--Category Collection View Controller-->
         <scene sceneID="BfK-v7-br8">
@@ -100,12 +106,12 @@
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zdL-4I-da8">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zdL-4I-da8" firstAttribute="top" secondItem="C7Z-Q4-R3N" secondAttribute="top" id="0go-en-Aqv"/>
+                            <constraint firstItem="zdL-4I-da8" firstAttribute="top" secondItem="2Ye-WW-cKe" secondAttribute="top" id="GK4-d8-fq8"/>
                             <constraint firstItem="fZh-xO-ttS" firstAttribute="centerY" secondItem="2Ye-WW-cKe" secondAttribute="centerY" id="H6s-h2-17g"/>
                             <constraint firstItem="zdL-4I-da8" firstAttribute="trailing" secondItem="C7Z-Q4-R3N" secondAttribute="trailing" id="Rsk-Id-z7R"/>
                             <constraint firstAttribute="bottom" secondItem="zdL-4I-da8" secondAttribute="bottom" id="Sdj-Nf-XUa"/>
@@ -133,7 +139,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BH4-EY-2Kw" kind="relationship" relationship="rootViewController" id="gly-fW-tAS"/>
+                        <segue destination="Gmd-JR-209" kind="relationship" relationship="rootViewController" id="EMC-wg-skn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8Y-7Z-AFV" userLabel="First Responder" sceneMemberID="firstResponder"/>

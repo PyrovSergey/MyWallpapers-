@@ -57,7 +57,6 @@ class SelectImageViewController: UIViewController {
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // we got back an error!
             showAlertWith(title: "Save error", message: error.localizedDescription)
         } else {
             showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")

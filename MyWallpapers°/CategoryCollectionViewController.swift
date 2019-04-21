@@ -79,7 +79,7 @@ extension CategoryCollectionViewController {
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = self.collectionView.contentOffset.y //self.tableView.contentOffset.y
+        let offsetY = self.collectionView.contentOffset.y
         for cell in self.collectionView.visibleCells as! [CustomCollectionViewCell] {
             let x = cell.img.frame.origin.x
             let w = cell.img.bounds.width

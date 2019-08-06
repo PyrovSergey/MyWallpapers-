@@ -8,14 +8,12 @@
 
 import Foundation
 
+
 class DataStorage {
-    private static let instance = DataStorage()
+    
+    static let share = DataStorage()
     
     private init() {}
-    
-    static func getInstance() -> DataStorage {
-        return instance
-    }
     
     let categoryArray = [
         "Abstraction",

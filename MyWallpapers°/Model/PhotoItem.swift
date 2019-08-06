@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct PhotoItem {
     var photographer : String
     var original: String

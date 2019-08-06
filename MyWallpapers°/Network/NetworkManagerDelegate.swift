@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 protocol NetworkManagerDelegate{
     
     func successRequest(result: [PhotoItem])

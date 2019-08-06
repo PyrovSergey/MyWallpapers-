@@ -11,8 +11,13 @@ import Alamofire
 import SwiftyJSON
 import Reachability
 
+
 class NetworkManager: NSObject {
-    private static let instance = NetworkManager()
+    
+    static let share = NetworkManager()
+    
+    var reachability: Reachability!
+    
     private let apiKey: String = "563492ad6f91700001000001a339a6814c384995974312ac8533c8e5"
     private let baseUrlForRequest: String = "https://api.pexels.com/v1/search"
     private let perPage: Int = 50
@@ -20,39 +25,32 @@ class NetworkManager: NSObject {
     private var totalResult: Int = 0
     private var totalPages: Int = 0
     private var currentCategory: String = ""
-    var reachability: Reachability!
+    
     
     private override init() {
         super.init()
-        // Initialise reachability
+
         reachability = Reachability()!
-        // Register an observer for the network status
+
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(networkStatusChanged(_:)),
+            selector: #selector(networkStatusChanged),
             name: .reachabilityChanged,
             object: reachability
         )
         do {
-            // Start the network status notifier
             try reachability.startNotifier()
         } catch {
             print("Unable to start notifier")
         }
     }
-    
-    static func getInstance() -> NetworkManager {
-        return instance
-    }
-    
-    func clearCounts() {
-        currentCategory = ""
-        numberOfCurrentPage = 1
-        totalResult = 0
-        totalPages = 0
-    }
+}
+
+// MARK: - Networking
+extension NetworkManager {
     
     func getRequest(category: String, manager: NetworkManagerDelegate) {
+        
         if currentCategory != category {
             currentCategory = category
             numberOfCurrentPage = 1
@@ -69,14 +67,17 @@ class NetworkManager: NSObject {
             "page" : String(numberOfCurrentPage)
         ]
         
-        print("\(baseUrlForRequest)?query=\(category)&per_page=\(perPage)&page=\(numberOfCurrentPage)")
-        
-        Alamofire.request(baseUrlForRequest, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON {
+        Alamofire.request(baseUrlForRequest,
+                          method: .get,
+                          parameters: params,
+                          encoding: URLEncoding.default,
+                          headers: headers).responseJSON {
             response in
             if response.result.isSuccess {
-                print("Success response!")
+
                 let responseJSON : JSON = JSON(response.result.value!)
                 var resultArrayPhotos = [PhotoItem]()
+                
                 if let total = responseJSON["total_results"].int {
                     if self.totalResult == 0 {
                         self.totalResult = total
@@ -85,11 +86,11 @@ class NetworkManager: NSObject {
                             resultPages += 1
                         }
                         self.totalPages = resultPages
-                        print("totalPages  -- >> \(self.totalPages)")
                     }
                 }
+                
                 if let responsePhotosArray = responseJSON["photos"].array {
-                    if !responsePhotosArray.isEmpty {
+                    if responsePhotosArray.isEmpty == false {
                         for responseObject in responsePhotosArray {
                             resultArrayPhotos.append(PhotoItem(
                                 photographer: responseObject["photographer"].string ?? "",
@@ -104,58 +105,48 @@ class NetworkManager: NSObject {
                                 tiny: responseObject["src"]["tiny"].string ?? ""
                             ))
                         }
-                        
                     }
+                    
                     if self.totalPages > self.numberOfCurrentPage {
                         self.numberOfCurrentPage += 1
                         manager.successRequest(result: resultArrayPhotos)
                     }
+                    
                 } else {
                     manager.errorRequest(errorMessage: "Response in errorr \(response.error!)")
                 }
             }
         }
     }
+}
+
+// MARK: - Public interface
+extension NetworkManager {
+    
+    func clearCounts() {
+        currentCategory = ""
+        numberOfCurrentPage = 1
+        totalResult = 0
+        totalPages = 0
+    }
     
     @objc func networkStatusChanged(_ notification: Notification) {
         // Do something globally here!
     }
     
-    static func stopNotifier() -> Void {
-        do {
-            // Stop the network status notifier
-            try (NetworkManager.getInstance().reachability).startNotifier()
-        } catch {
-            print("Error stopping notifier")
-        }
-    }
-    
     // Network is reachable
     static func isReachable(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.getInstance().reachability).connection != .none {
-            completed(NetworkManager.getInstance())
+        if (NetworkManager.share.reachability).connection != .none {
+            completed(NetworkManager.share)
         }
     }
     
     // Network is unreachable
     static func isUnreachable(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.getInstance().reachability).connection == .none {
-            completed(NetworkManager.getInstance())
+        if (NetworkManager.share.reachability).connection == .none {
+            completed(NetworkManager.share)
         }
     }
-    
-    // Network is reachable via WWAN/Cellular
-    static func isReachableViaWWAN(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.getInstance().reachability).connection == .cellular {
-            completed(NetworkManager.getInstance())
-        }
-    }
-    
-    // Network is reachable via WiFi
-    static func isReachableViaWiFi(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.getInstance().reachability).connection == .wifi {
-            completed(NetworkManager.getInstance())
-        }
-    }
+
 }
 

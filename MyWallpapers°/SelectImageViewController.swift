@@ -10,24 +10,29 @@ import UIKit
 import SDWebImage
 import ChameleonFramework
 
+
 class SelectImageViewController: UIViewController {
     
     var selectedPhoto: PhotoItem?
     
     @IBOutlet weak var photoView: UIImageView!
+}
+
+// MARK: - Override
+extension SelectImageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoView.sd_setImage(with: URL(string: selectedPhoto!.portrait), completed: nil)
-        let colour = AverageColorFromImage(photoView.image!)
-        self.navigationController?.navigationBar.tintColor = ContrastColorOf(colour, returnFlat: true)
-        let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
-        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
-        navigationItem.rightBarButtonItems = [actionButton, saveButton]
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        photoView.isUserInteractionEnabled = true
-        photoView.addGestureRecognizer(tapGestureRecognizer)
+        setupView()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+}
+
+// MARK: - Action
+private extension SelectImageViewController {
     
     @objc func action() {
         let vc = UIActivityViewController(activityItems: [photoView.image!], applicationActivities: [])
@@ -35,10 +40,10 @@ class SelectImageViewController: UIViewController {
     }
     
     @objc  func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-       let imageView = tapGestureRecognizer.view as! UIImageView
-       let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-       imageView.addGestureRecognizer(tap)
-       self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let imageView = tapGestureRecognizer.view as! UIImageView
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        imageView.addGestureRecognizer(tap)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -62,15 +67,27 @@ class SelectImageViewController: UIViewController {
             showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")
         }
     }
+}
+
+// MARK: - Private
+private extension SelectImageViewController {
     
-    private func showAlertWith(title: String, message: String){
+    func setupView() {
+        photoView.sd_setImage(with: URL(string: selectedPhoto!.portrait), completed: nil)
+        let colour = AverageColorFromImage(photoView.image!)
+        self.navigationController?.navigationBar.tintColor = ContrastColorOf(colour, returnFlat: true)
+        let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItems = [actionButton, saveButton]
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        photoView.isUserInteractionEnabled = true
+        photoView.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    func showAlertWith(title: String, message: String){
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }
 

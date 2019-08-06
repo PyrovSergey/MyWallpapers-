@@ -9,34 +9,47 @@
 import UIKit
 import ChameleonFramework
 
+
 class CategoriesCollectionViewController: UICollectionViewController {
-    private let categoryArray = DataStorage.getInstance().categoryArray
+    private let categoryArray = DataStorage.share.categoryArray
     private let reuseIdentifier = "CategoriesCell"
+}
+
+// MARK: - Override
+extension CategoriesCollectionViewController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         prepareChangeConnectionListener()
         collectionView.register(UINib(nibName: "CustomViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkCurrentConnection()
+        
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToSelectCategory" {
+            let destinationVC = segue.destination as! CategoryCollectionViewController
+            let index = sender as? IndexPath
+            destinationVC.nameOfCategory = categoryArray[(index?.row)!]
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
 extension CategoriesCollectionViewController {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count
@@ -51,23 +64,23 @@ extension CategoriesCollectionViewController {
         cell?.layer.cornerRadius = 20
         return cell ?? UICollectionViewCell()
     }
+}
+
+// MARK: - UICollectionViewDelegate
+extension CategoriesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NetworkManager.isReachable { _ in
             self.performSegue(withIdentifier: "goToSelectCategory", sender: indexPath)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSelectCategory" {
-            let destinationVC = segue.destination as! CategoryCollectionViewController
-            let index = sender as? IndexPath
-            destinationVC.nameOfCategory = categoryArray[(index?.row)!]
-        }
-    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension CategoriesCollectionViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = self.collectionView.contentOffset.y //self.tableView.contentOffset.y
+        let offsetY = self.collectionView.contentOffset.y
         for cell in self.collectionView.visibleCells as! [CustomCategoriesViewCell] {
             let x = cell.img.frame.origin.x
             let w = cell.img.bounds.width
@@ -76,21 +89,34 @@ extension CategoriesCollectionViewController {
             cell.img.frame = CGRect(x: x, y: y, width: w, height: h)
         }
     }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CategoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
     
-    private func prepareChangeConnectionListener() {
-        NetworkManager.getInstance().reachability.whenUnreachable = {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        return CGSize(width: screenWidth - 20, height: 130)
+    }
+}
+
+// MARK: - Private
+private extension CategoriesCollectionViewController {
+    
+    func prepareChangeConnectionListener() {
+        NetworkManager.share.reachability.whenUnreachable = {
             _ in
             self.showLostConnectionMessage()
         }
     }
     
-    private func checkCurrentConnection() {
+    func checkCurrentConnection() {
         NetworkManager.isUnreachable { _ in
             self.showLostConnectionMessage()
         }
     }
     
-    private func showLostConnectionMessage() {
+    func showLostConnectionMessage() {
         let dialogMessage = UIAlertController(title: "Lost internet connection", message: "Check connection settings", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default) { action in
             self.checkCurrentConnection()
@@ -99,12 +125,3 @@ extension CategoriesCollectionViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
 }
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension CategoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let screenWidth = UIScreen.main.bounds.width
-        return CGSize(width: screenWidth - 20, height: 130)
-    }
-}
-

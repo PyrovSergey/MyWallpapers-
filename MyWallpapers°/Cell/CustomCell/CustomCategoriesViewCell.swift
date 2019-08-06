@@ -17,9 +17,4 @@ class CustomCategoriesViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.imgWrapper.clipsToBounds = true
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-//    }
 }

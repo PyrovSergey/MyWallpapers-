@@ -1,14 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Store.plist
-   MyWallpapers°
-
-   Created by Sergey Pyrov on 06/08/2019.
-   Copyright (c) 2019 PyrovSergey. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<array>
+	  <string>Abstraction</string>
+	  <string>Adventure</string>
+	  <string>Animals</string>
+	  <string>Architecture</string>
+	  <string>Art</string>
+	  <string>Black And White</string>
+	  <string>Blur</string>
+	  <string>Blue</string>
+	  <string>Books</string>
+	  <string>Building</string>
+	  <string>Camera</string>
+	  <string>Car</string>
+	  <string>City</string>
+	  <string>Clouds</string>
+	  <string>Coffee</string>
+	  <string>Construction</string>
+	  <string>Cooking</string>
+	  <string>Creative</string>
+	  <string>Desert</string>
+	  <string>Design</string>
+	  <string>Desk</string>
+	  <string>Earth</string>
+	  <string>Fire</string>
+	  <string>Flowers</string>
+	  <string>Food</string>
+	  <string>Forest</string>
+	  <string>Fun</string>
+	  <string>Garden</string>
+	  <string>Gift</string>
+	  <string>Grass</string>
+	  <string>Green</string>
+	  <string>Gym</string>
+	  <string>HD Wallpaper</string>
+	  <string>Heart</string>
+	  <string>Holiday</string>
+	  <string>Home</string>
+	  <string>Ice Cream</string>
+	  <string>Industry</string>
+	  <string>Interior</string>
+	  <string>Landscape</string>
+	  <string>Light</string>
+	  <string>Love</string>
+	  <string>Marketing</string>
+	  <string>Mountains</string>
+	  <string>Music</string>
+	  <string>Nature</string>
+	  <string>New York</string>
+	  <string>Night</string>
+	  <string>Notebook</string>
+	  <string>Orange</string>
+	  <string>Paint</string>
+	  <string>Paper</string>
+	  <string>Photography</string>
+	  <string>Plane</string>
+	  <string>Purple</string>
+	  <string>Rain</string>
+	  <string>Red</string>
+	  <string>Relax</string>
+	  <string>River</string>
+	  <string>Road</string>
+	  <string>Sea</string>
+	  <string>Sky</string>
+	  <string>Space</string>
+	  <string>Sport</string>
+	  <string>Street</string>
+	  <string>Summer</string>
+	  <string>Sun</string>
+	  <string>Sunset</string>
+	  <string>Technology</string>
+	  <string>Texture</string>
+	  <string>Time</string>
+	  <string>Tools</string>
+	  <string>Vintage</string>
+	  <string>Wall</string>
+	  <string>Water</string>
+	  <string>Winter</string>
+	  <string>Wood</string>
+	  <string>Yellow</string>
+</array>
 </plist>

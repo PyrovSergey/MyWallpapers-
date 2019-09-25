@@ -11,7 +11,7 @@ import ChameleonFramework
 
 
 class CategoriesCollectionViewController: UICollectionViewController {
-    private let categoryArray = DataStorage.share.categoryArray
+    private var categoryArray: [String] = []
     private let reuseIdentifier = "CategoriesCell"
 }
 
@@ -20,6 +20,9 @@ extension CategoriesCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryArray = readCategoriesFromFile()
+        
         prepareChangeConnectionListener()
         collectionView.register(UINib(nibName: "CustomViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
@@ -102,6 +105,13 @@ extension CategoriesCollectionViewController: UICollectionViewDelegateFlowLayout
 
 // MARK: - Private
 private extension CategoriesCollectionViewController {
+    
+    func readCategoriesFromFile() -> [String] {
+        let url = Bundle.main.url(forResource: "Store", withExtension: "plist")!
+        let categoriesData = try! Data(contentsOf: url)
+        let categoriesList = try! PropertyListSerialization.propertyList(from: categoriesData, options: [], format: nil) as! [String]
+        return categoriesList
+    }
     
     func prepareChangeConnectionListener() {
         NetworkManager.share.reachability.whenUnreachable = {

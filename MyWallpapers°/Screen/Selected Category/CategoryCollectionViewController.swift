@@ -9,7 +9,6 @@
 import UIKit
 import SDWebImage
 
-
 class CategoryCollectionViewController: UICollectionViewController {
     
     var nameOfCategory: String?
@@ -40,12 +39,7 @@ extension CategoryCollectionViewController {
             NetworkManager.share.clearCounts()
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! SelectImageViewController
-        destinationVC.selectedPhoto = sender as? PhotoItem
-    }
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -114,7 +108,7 @@ extension CategoryCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToSelectImage", sender: arrayOfPhotos[indexPath.row])
+        Router.shared.openSelectedImage(by: arrayOfPhotos[indexPath.row])
     }
 }
 
@@ -153,4 +147,7 @@ extension CategoryCollectionViewController : UICollectionViewDelegateFlowLayout 
         return sectionInserts.left
     }
 }
+
+// MARK: - StoryboardInstantinable
+extension CategoryCollectionViewController: StoryboardInstantinable {}
 

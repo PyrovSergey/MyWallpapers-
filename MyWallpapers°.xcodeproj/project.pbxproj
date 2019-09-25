@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		70599C9F66BE71ED0FCC9635 /* Pods_MyWallpapers_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37E78F7C089AD9ACC903EC /* Pods_MyWallpapers_.framework */; };
 		925FB81522F9B3AB0069AC54 /* Store.plist in Resources */ = {isa = PBXBuildFile; fileRef = 925FB81422F9B3AB0069AC54 /* Store.plist */; };
+		9516F76D233BA90D00A25927 /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516F76C233BA90D00A25927 /* UICollectionView+Dequeue.swift */; };
+		9516F76F233BAD8D00A25927 /* SelectImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9516F76E233BAD8D00A25927 /* SelectImage.storyboard */; };
+		9516F771233BADEC00A25927 /* CategoryCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9516F770233BADEC00A25927 /* CategoryCollection.storyboard */; };
+		9516F773233BAE6900A25927 /* CategoriesCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9516F772233BAE6900A25927 /* CategoriesCollection.storyboard */; };
+		9516F776233BB06C00A25927 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516F775233BB06C00A25927 /* Router.swift */; };
+		9516F778233BB19600A25927 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516F777233BB19600A25927 /* UIWindow+RootViewController.swift */; };
 		95724BC12267873F009BF453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95724BC02267873F009BF453 /* AppDelegate.swift */; };
-		95724BC62267873F009BF453 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95724BC42267873F009BF453 /* Main.storyboard */; };
 		95724BC92267873F009BF453 /* MyWallpapers_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95724BC72267873F009BF453 /* MyWallpapers_.xcdatamodeld */; };
 		95724BCB22678741009BF453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95724BCA22678741009BF453 /* Assets.xcassets */; };
 		95724BCE22678741009BF453 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95724BCC22678741009BF453 /* LaunchScreen.storyboard */; };
@@ -23,15 +28,21 @@
 		95724BE722679458009BF453 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95724BE622679458009BF453 /* CustomCollectionViewCell.swift */; };
 		95724BEB22679583009BF453 /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95724BEA22679583009BF453 /* CustomViewCell.xib */; };
 		95724BED2267959F009BF453 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95724BEC2267959F009BF453 /* CustomCollectionViewCell.xib */; };
+		9586213E233BA7DB0075167D /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586213D233BA7DB0075167D /* UIViewController+Storyboard.swift */; };
 		95A8A5AF2269CCD4009265D6 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8A5AE2269CCD4009265D6 /* CategoriesCollectionViewController.swift */; };
 		95C64DBA2269328000DF3654 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C64DB92269328000DF3654 /* System.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		925FB81422F9B3AB0069AC54 /* Store.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Store.plist; sourceTree = "<group>"; };
+		9516F76C233BA90D00A25927 /* UICollectionView+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dequeue.swift"; sourceTree = "<group>"; };
+		9516F76E233BAD8D00A25927 /* SelectImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectImage.storyboard; sourceTree = "<group>"; };
+		9516F770233BADEC00A25927 /* CategoryCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryCollection.storyboard; sourceTree = "<group>"; };
+		9516F772233BAE6900A25927 /* CategoriesCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesCollection.storyboard; sourceTree = "<group>"; };
+		9516F775233BB06C00A25927 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9516F777233BB19600A25927 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
 		95724BBD2267873F009BF453 /* MyWallpapers°.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyWallpapers°.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95724BC02267873F009BF453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95724BC52267873F009BF453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95724BC82267873F009BF453 /* MyWallpapers_.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyWallpapers_.xcdatamodel; sourceTree = "<group>"; };
 		95724BCA22678741009BF453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95724BCD22678741009BF453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +56,7 @@
 		95724BE622679458009BF453 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		95724BEA22679583009BF453 /* CustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
 		95724BEC2267959F009BF453 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		9586213D233BA7DB0075167D /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		95A8A5AE2269CCD4009265D6 /* CategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		95C64DB92269328000DF3654 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		A89C597FAF2AECCBE74C59D9 /* Pods-MyWallpapers°.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyWallpapers°.release.xcconfig"; path = "Target Support Files/Pods-MyWallpapers°/Pods-MyWallpapers°.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,10 +85,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9516F774233BB05300A25927 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9516F775233BB06C00A25927 /* Router.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		95724BB42267873F009BF453 = {
 			isa = PBXGroup;
 			children = (
+				95724BC02267873F009BF453 /* AppDelegate.swift */,
+				9516F774233BB05300A25927 /* Controller */,
+				95FBD721233B96D900C815BB /* Extensions */,
 				95724BBF2267873F009BF453 /* MyWallpapers° */,
+				9586213C233BA63F0075167D /* Supporting Files */,
 				95724BBE2267873F009BF453 /* Products */,
 				7F4F3C2D6E49E614FBD8E01C /* Pods */,
 				FBB976DF2DC215C53A2F208C /* Frameworks */,
@@ -94,19 +118,11 @@
 		95724BBF2267873F009BF453 /* MyWallpapers° */ = {
 			isa = PBXGroup;
 			children = (
-				95724BC02267873F009BF453 /* AppDelegate.swift */,
-				95A8A5AE2269CCD4009265D6 /* CategoriesCollectionViewController.swift */,
-				95724BD5226792A1009BF453 /* CategoryCollectionViewController.swift */,
-				95724BD7226792C7009BF453 /* SelectImageViewController.swift */,
-				95724BC42267873F009BF453 /* Main.storyboard */,
-				95724BCC22678741009BF453 /* LaunchScreen.storyboard */,
+				95862136233B9C880075167D /* Screen */,
 				925FB81422F9B3AB0069AC54 /* Store.plist */,
-				95724BCA22678741009BF453 /* Assets.xcassets */,
-				95724BCF22678741009BF453 /* Info.plist */,
 				95724BC72267873F009BF453 /* MyWallpapers_.xcdatamodeld */,
 				95724BDB22679324009BF453 /* Network */,
 				95724BE0226793CA009BF453 /* Model */,
-				95724BE922679477009BF453 /* Cell */,
 				95A8A5AD2269C4F3009265D6 /* Utils */,
 			);
 			path = "MyWallpapers°";
@@ -129,31 +145,71 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		95724BE52267943D009BF453 /* CustomCell */ = {
+		95862136233B9C880075167D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				95862137233B9C9A0075167D /* Categories */,
+				95862138233B9CA90075167D /* Selected Category */,
+				95862139233B9CBC0075167D /* Selected Image */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		95862137233B9C9A0075167D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9586213A233BA5E70075167D /* Cell */,
+				95A8A5AE2269CCD4009265D6 /* CategoriesCollectionViewController.swift */,
+				9516F772233BAE6900A25927 /* CategoriesCollection.storyboard */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		95862138233B9CA90075167D /* Selected Category */ = {
+			isa = PBXGroup;
+			children = (
+				9586213B233BA6020075167D /* Cell */,
+				95724BD5226792A1009BF453 /* CategoryCollectionViewController.swift */,
+				9516F770233BADEC00A25927 /* CategoryCollection.storyboard */,
+			);
+			path = "Selected Category";
+			sourceTree = "<group>";
+		};
+		95862139233B9CBC0075167D /* Selected Image */ = {
+			isa = PBXGroup;
+			children = (
+				95724BD7226792C7009BF453 /* SelectImageViewController.swift */,
+				9516F76E233BAD8D00A25927 /* SelectImage.storyboard */,
+			);
+			path = "Selected Image";
+			sourceTree = "<group>";
+		};
+		9586213A233BA5E70075167D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				95724BE32267941E009BF453 /* CustomCategoriesViewCell.swift */,
 				95724BEA22679583009BF453 /* CustomViewCell.xib */,
 			);
-			path = CustomCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		95724BE82267946A009BF453 /* CustomCollectionCell */ = {
+		9586213B233BA6020075167D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				95724BE622679458009BF453 /* CustomCollectionViewCell.swift */,
 				95724BEC2267959F009BF453 /* CustomCollectionViewCell.xib */,
 			);
-			path = CustomCollectionCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		95724BE922679477009BF453 /* Cell */ = {
+		9586213C233BA63F0075167D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				95724BE52267943D009BF453 /* CustomCell */,
-				95724BE82267946A009BF453 /* CustomCollectionCell */,
+				95724BCF22678741009BF453 /* Info.plist */,
+				95724BCA22678741009BF453 /* Assets.xcassets */,
+				95724BCC22678741009BF453 /* LaunchScreen.storyboard */,
 			);
-			path = Cell;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		95A8A5AD2269C4F3009265D6 /* Utils */ = {
@@ -162,6 +218,16 @@
 				95C64DB92269328000DF3654 /* System.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		95FBD721233B96D900C815BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9516F76C233BA90D00A25927 /* UICollectionView+Dequeue.swift */,
+				9586213D233BA7DB0075167D /* UIViewController+Storyboard.swift */,
+				9516F777233BB19600A25927 /* UIWindow+RootViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FBB976DF2DC215C53A2F208C /* Frameworks */ = {
@@ -235,9 +301,11 @@
 				925FB81522F9B3AB0069AC54 /* Store.plist in Resources */,
 				95724BCE22678741009BF453 /* LaunchScreen.storyboard in Resources */,
 				95724BEB22679583009BF453 /* CustomViewCell.xib in Resources */,
+				9516F773233BAE6900A25927 /* CategoriesCollection.storyboard in Resources */,
 				95724BCB22678741009BF453 /* Assets.xcassets in Resources */,
 				95724BED2267959F009BF453 /* CustomCollectionViewCell.xib in Resources */,
-				95724BC62267873F009BF453 /* Main.storyboard in Resources */,
+				9516F771233BADEC00A25927 /* CategoryCollection.storyboard in Resources */,
+				9516F76F233BAD8D00A25927 /* SelectImage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +360,7 @@
 			files = (
 				95724BDD22679357009BF453 /* NetworkManagerDelegate.swift in Sources */,
 				95724BDA2267930C009BF453 /* NetworkManager.swift in Sources */,
+				9516F778233BB19600A25927 /* UIWindow+RootViewController.swift in Sources */,
 				95C64DBA2269328000DF3654 /* System.swift in Sources */,
 				95724BD8226792C7009BF453 /* SelectImageViewController.swift in Sources */,
 				95A8A5AF2269CCD4009265D6 /* CategoriesCollectionViewController.swift in Sources */,
@@ -299,22 +368,17 @@
 				95724BE42267941E009BF453 /* CustomCategoriesViewCell.swift in Sources */,
 				95724BD6226792A1009BF453 /* CategoryCollectionViewController.swift in Sources */,
 				95724BC12267873F009BF453 /* AppDelegate.swift in Sources */,
+				9516F76D233BA90D00A25927 /* UICollectionView+Dequeue.swift in Sources */,
+				9516F776233BB06C00A25927 /* Router.swift in Sources */,
 				95724BE2226793E4009BF453 /* PhotoItem.swift in Sources */,
 				95724BE722679458009BF453 /* CustomCollectionViewCell.swift in Sources */,
+				9586213E233BA7DB0075167D /* UIViewController+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95724BC42267873F009BF453 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				95724BC52267873F009BF453 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		95724BCC22678741009BF453 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -448,8 +512,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SH4TBH25W;
-				INFOPLIST_FILE = "MyWallpapers°/Info.plist";
+				DEVELOPMENT_TEAM = WD94C6GWGP;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,8 +532,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SH4TBH25W;
-				INFOPLIST_FILE = "MyWallpapers°/Info.plist";
+				DEVELOPMENT_TEAM = WD94C6GWGP;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

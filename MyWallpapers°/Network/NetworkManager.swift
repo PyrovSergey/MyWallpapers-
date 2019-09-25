@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 import Reachability
 
-
 class NetworkManager: NSObject {
     
     static let share = NetworkManager()

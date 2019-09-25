@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+                Router.shared.openCategories()
         UINavigationBar.appearance().tintColor = .black
         return true
     }
@@ -30,9 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let container = NSPersistentContainer(name: "MyWallpapers_")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            
             if let error = error as NSError? {
-                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })

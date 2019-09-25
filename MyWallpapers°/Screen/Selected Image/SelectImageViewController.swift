@@ -10,12 +10,10 @@ import UIKit
 import SDWebImage
 import ChameleonFramework
 
-
 class SelectImageViewController: UIViewController {
     
+    @IBOutlet private weak var photoView: UIImageView!
     var selectedPhoto: PhotoItem?
-    
-    @IBOutlet weak var photoView: UIImageView!
 }
 
 // MARK: - Override
@@ -74,7 +72,7 @@ private extension SelectImageViewController {
     
     func setupView() {
         photoView.sd_setImage(with: URL(string: selectedPhoto!.portrait), completed: nil)
-        let colour = AverageColorFromImage(photoView.image!)
+        let colour = AverageColorFromImage(photoView.image ?? UIImage(named: "Abstraction")!)
         self.navigationController?.navigationBar.tintColor = ContrastColorOf(colour, returnFlat: true)
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
         let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
@@ -90,4 +88,7 @@ private extension SelectImageViewController {
         present(ac, animated: true)
     }
 }
+
+// MARK: - StoryboardInstantinable
+extension SelectImageViewController: StoryboardInstantinable {}
 

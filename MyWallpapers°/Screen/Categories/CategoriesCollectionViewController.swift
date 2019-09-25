@@ -9,7 +9,6 @@
 import UIKit
 import ChameleonFramework
 
-
 class CategoriesCollectionViewController: UICollectionViewController {
     private var categoryArray: [String] = []
     private let reuseIdentifier = "CategoriesCell"
@@ -20,9 +19,8 @@ extension CategoriesCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
         categoryArray = readCategoriesFromFile()
-        
         prepareChangeConnectionListener()
         collectionView.register(UINib(nibName: "CustomViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
@@ -34,15 +32,6 @@ extension CategoriesCollectionViewController {
         if let navController = navigationController {
             System.clearNavigationBar(forBar: navController.navigationBar)
             navController.view.backgroundColor = .clear
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goToSelectCategory" {
-            let destinationVC = segue.destination as! CategoryCollectionViewController
-            let index = sender as? IndexPath
-            destinationVC.nameOfCategory = categoryArray[(index?.row)!]
         }
     }
     
@@ -74,7 +63,7 @@ extension CategoriesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NetworkManager.isReachable { _ in
-            self.performSegue(withIdentifier: "goToSelectCategory", sender: indexPath)
+            Router.shared.openCategory(by: self.categoryArray[indexPath.row])
         }
     }
 }
@@ -106,6 +95,12 @@ extension CategoriesCollectionViewController: UICollectionViewDelegateFlowLayout
 // MARK: - Private
 private extension CategoriesCollectionViewController {
     
+    func setupView() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Categories"
+    }
+    
     func readCategoriesFromFile() -> [String] {
         let url = Bundle.main.url(forResource: "Store", withExtension: "plist")!
         let categoriesData = try! Data(contentsOf: url)
@@ -135,3 +130,6 @@ private extension CategoriesCollectionViewController {
         self.present(dialogMessage, animated: true, completion: nil)
     }
 }
+
+// MARK: - StoryboardInstantinable
+extension CategoriesCollectionViewController: StoryboardInstantinable {}

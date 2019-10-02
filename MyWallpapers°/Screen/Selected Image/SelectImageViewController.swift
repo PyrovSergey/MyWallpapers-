@@ -8,7 +8,6 @@
 
 import UIKit
 import SDWebImage
-import ChameleonFramework
 
 class SelectImageViewController: UIViewController {
     
@@ -72,8 +71,6 @@ private extension SelectImageViewController {
     
     func setupView() {
         photoView.sd_setImage(with: URL(string: selectedPhoto!.portrait), completed: nil)
-        let colour = AverageColorFromImage(photoView.image ?? UIImage(named: "Abstraction")!)
-        self.navigationController?.navigationBar.tintColor = ContrastColorOf(colour, returnFlat: true)
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(action))
         let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
         navigationItem.rightBarButtonItems = [actionButton, saveButton]

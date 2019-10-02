@@ -11,6 +11,5 @@ pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'SDWebImage'
 pod 'ReachabilitySwift'
-pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end

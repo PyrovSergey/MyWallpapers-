@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class CategoriesCollectionViewController: UICollectionViewController {
     private var categoryArray: [String] = []
@@ -49,8 +48,6 @@ extension CategoriesCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CustomCategoriesViewCell
-        let colour = AverageColorFromImage(UIImage(named: categoryArray[indexPath.row])!)
-        cell?.categoryTitle.textColor = ContrastColorOf(colour, returnFlat: true)
         cell?.categoryTitle.text = categoryArray[indexPath.row]
         cell?.img.image = UIImage(named: categoryArray[indexPath.row])
         cell?.layer.cornerRadius = 20
@@ -98,6 +95,8 @@ private extension CategoriesCollectionViewController {
     func setupView() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         title = "Categories"
     }
     

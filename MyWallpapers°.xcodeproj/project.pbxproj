@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70599C9F66BE71ED0FCC9635 /* Pods_MyWallpapers_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37E78F7C089AD9ACC903EC /* Pods_MyWallpapers_.framework */; };
 		925FB81522F9B3AB0069AC54 /* Store.plist in Resources */ = {isa = PBXBuildFile; fileRef = 925FB81422F9B3AB0069AC54 /* Store.plist */; };
 		9516F76D233BA90D00A25927 /* UICollectionView+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516F76C233BA90D00A25927 /* UICollectionView+Dequeue.swift */; };
 		9516F76F233BAD8D00A25927 /* SelectImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9516F76E233BAD8D00A25927 /* SelectImage.storyboard */; };
@@ -31,6 +30,7 @@
 		9586213E233BA7DB0075167D /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586213D233BA7DB0075167D /* UIViewController+Storyboard.swift */; };
 		95A8A5AF2269CCD4009265D6 /* CategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A8A5AE2269CCD4009265D6 /* CategoriesCollectionViewController.swift */; };
 		95C64DBA2269328000DF3654 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C64DB92269328000DF3654 /* System.swift */; };
+		95E8CA5B2344DB780090B8D4 /* Pods_MyWallpapers_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37E78F7C089AD9ACC903EC /* Pods_MyWallpapers_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70599C9F66BE71ED0FCC9635 /* Pods_MyWallpapers_.framework in Frameworks */,
+				95E8CA5B2344DB780090B8D4 /* Pods_MyWallpapers_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +276,7 @@
 				};
 			};
 			buildConfigurationList = 95724BB82267873F009BF453 /* Build configuration list for PBXProject "MyWallpapers°" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
